@@ -1,0 +1,457 @@
+test> use MongoDBPractice
+switched to db MongoDBPractice
+MongoDBPractice> db.movies.insertMany([
+... {"title": "Fight Club", "writer": "Chuck Palahniuk", "year": 1999, "actors": ["Brad Pitt", "Edward Norton"]},
+... {"title": "Pulp Fiction", "writer": "Quentin Tarantino", "year": 1994, "actors": ["John Travolta", "Uma Thurman"]},
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    '1': ObjectId("64c0f9fe2181d4c4c7350f5b")
+  }
+}
+MongoDBPractice> db.movies.find()
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman' ]
+  }
+]
+MongoDBPractice> db.movies.insertMany([ {"title": "Inglorious Basterds", "writer": "Quentin Tarantino", "year": 2009, "actors": ["Brad Pitt", "Diane Kruger", "Eli Roth"]}, {"title": "The Hobbit: An Unexpected Journey", "writer": "J.R.R. Tolkein", "year": 2012, "franchise": "The Hobbit"},
+... {"title": "The Hobbit: The Desolation of Smaug", "writer": "J.R.R. Tolkein", "year": 2013, "franchise": "The Hobbit"},
+... {"title": "The Hobbit: The Battle of the Five Armies", "writer": "J.R.R. Tolkein", "year": 2012, "franchise": "The Hobbit", "synopsis": "Bilbo and Compa
+ny are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness."},
+... {"title": "Pee Wee Herman's Big Adventure"},
+... {"title": "Avatar"}
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64c0fbc52181d4c4c7350f5c"),
+    '1': ObjectId("64c0fbc52181d4c4c7350f5d"),
+    '2': ObjectId("64c0fbc52181d4c4c7350f5e"),
+    '3': ObjectId("64c0fbc52181d4c4c7350f5f"),
+    '4': ObjectId("64c0fbc52181d4c4c7350f60"),
+    '5': ObjectId("64c0fbc52181d4c4c7350f61")
+  }
+}
+MongoDBPractice> db.movies.find()
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5c"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f60"),
+    title: "Pee Wee Herman's Big Adventure"
+  },
+  { _id: ObjectId("64c0fbc52181d4c4c7350f61"), title: 'Avatar' }
+]
+MongoDBPractice> db.movies.find({writer: "Quentin Tarantino"})
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5c"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  }
+]
+MongoDBPractice> db.movies.find({actors: "Brad Pitt"})
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5c"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  }
+]
+MongoDBPractice> db.movies.find({franchise: "The Hobbit"})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+MongoDBPractice> db.movies.find({year: {$gt: 1990, $lt: 2000}})
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman' ]
+  }
+]
+MongoDBPractice> db.movies.find({$or:[{year: {$lt: 2000}}, {year: {$gt: 2010}}]})
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+MongoDBPractice> db.movies.update({title: "The Hobbit: An UnexpectedJourney"}, {$set:{synopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+MongoDBPractice> db.movies.find({_id:ObjectId("64c0fbc52181d4c4c7350f5d")})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit'
+  }
+]
+MongoDBPractice> db.movies.updateOne({title: "The Hobbit: An UnexpectedJourney"}, {$set:{synopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+MongoDBPractice> db.movies.updateOne({title: "The Hobbit: An Unexpected Journey"}, {$set:{synopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+MongoDBPractice> db.movies.find({_id:ObjectId("64c0fbc52181d4c4c7350f5d")})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  }
+]
+MongoDBPractice> db.movies.updateOne({title: "The Hobbit: The Desolation of Smaug"}, {$set:{synopsis: "The dwarves, along with Bilbo Baggins and Gandalf the
+ Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+MongoDBPractice> db.movies.find({_id:ObjectId("64c0fbc52181d4c4c7350f5e")})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring'
+  }
+]
+MongoDBPractice> db.movies.update({_id: ObjectId("64c0f9fe2181d4c4c7350f5b")}, {$push: {actors: "Samuel L. Jackson"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+MongoDBPractice> db.movies.find({_id:ObjectId("64c0f9fe2181d4c4c7350f5b")})
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman', 'Samuel L. Jackson' ]
+  }
+]
+MongoDBPractice> db.movies.find({synopsis: {$regex: "Bilbo"}})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+MongoDBPractice> db.movies.find({synopsis: {$regex: "Gandalf"}})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring'
+  }
+]
+MongoDBPractice> db.movies.find({$and: [{synopsis: {$regex: "Bilbo"}}, {synopsis: {$not: {$regex: "Gandalf"}}}]})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+MongoDBPractice> db.movies.find({$or: [{synopsis: {$regex: "dwarves"}}, {synopsis: {$regex: "hobbit"}}]})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring'
+  }
+]
+MongoDBPractice> db.movies.find({$and: [{synopsis: {$regex: "gold"}}, {synopsis: {$regex: "dragon"}}]})
+[
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  }
+]
+MongoDBPractice> db.movies.remove({_id: ObjectId("64c0fbc52181d4c4c7350f60")})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+MongoDBPractice> db.movies.remove({_id: ObjectId("64c0fbc52181d4c4c7350f61")})
+{ acknowledged: true, deletedCount: 1 }
+MongoDBPractice> db.movies.find()
+[
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5a"),
+    title: 'Fight Club',
+    writer: 'Chuck Palahniuk',
+    year: 1999,
+    actors: [ 'Brad Pitt', 'Edward Norton' ]
+  },
+  {
+    _id: ObjectId("64c0f9fe2181d4c4c7350f5b"),
+    title: 'Pulp Fiction',
+    writer: 'Quentin Tarantino',
+    year: 1994,
+    actors: [ 'John Travolta', 'Uma Thurman', 'Samuel L. Jackson' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5c"),
+    title: 'Inglorious Basterds',
+    writer: 'Quentin Tarantino',
+    year: 2009,
+    actors: [ 'Brad Pitt', 'Diane Kruger', 'Eli Roth' ]
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5d"),
+    title: 'The Hobbit: An Unexpected Journey',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5e"),
+    title: 'The Hobbit: The Desolation of Smaug',
+    writer: 'J.R.R. Tolkein',
+    year: 2013,
+    franchise: 'The Hobbit',
+    synopsis: 'The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring'
+  },
+  {
+    _id: ObjectId("64c0fbc52181d4c4c7350f5f"),
+    title: 'The Hobbit: The Battle of the Five Armies',
+    writer: 'J.R.R. Tolkein',
+    year: 2012,
+    franchise: 'The Hobbit',
+    synopsis: 'Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness.'
+  }
+]
+MongoDBPractice> db.users.insertMany([
+... {"_id": 1, "username": "GoodGuyGreg", "first_name": "Good Guy", "last_name": "Greg"},
+... {"_id": 2, "username": "ScumbagSteve", "full_name": {"first": "Scumbag", "last": "Steve"}},
+... ])
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2 } }
+MongoDBPractice> db.users.find()
+[
+  {
+    _id: 1,
+    username: 'GoodGuyGreg',
+    first_name: 'Good Guy',
+    last_name: 'Greg'
+  },
+  {
+    _id: 2,
+    username: 'ScumbagSteve',
+    full_name: { first: 'Scumbag', last: 'Steve' }
+  }
+]
