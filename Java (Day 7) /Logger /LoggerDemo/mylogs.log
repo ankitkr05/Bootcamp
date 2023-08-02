@@ -1,0 +1,16 @@
+2023-08-02 11:46:26 [main] ERROR Bootcamp.Day7.EmployeeService -This is error
+2023-08-02 11:46:26 [main] WARN  Bootcamp.Day7.EmployeeService -This is warning
+2023-08-02 11:46:26 [main] INFO  Bootcamp.Day7.EmployeeService -This is info
+2023-08-02 11:46:26 [main] DEBUG Bootcamp.Day7.EmployeeService -This is debug
+2023-08-02 11:46:54 [main] ERROR Bootcamp.Day7.EmployeeService -This is error
+2023-08-02 11:46:55 [main] WARN  Bootcamp.Day7.EmployeeService -This is warning
+2023-08-02 11:46:55 [main] INFO  Bootcamp.Day7.EmployeeService -This is info
+2023-08-02 11:46:55 [main] DEBUG Bootcamp.Day7.EmployeeService -This is debug
+2023-08-02 11:48:44 [main] ERROR Bootcamp.Day7.EmployeeService -This is error
+2023-08-02 11:48:44 [main] WARN  Bootcamp.Day7.EmployeeService -This is warning
+2023-08-02 11:48:44 [main] INFO  Bootcamp.Day7.EmployeeService -This is info
+2023-08-02 11:48:44 [main] DEBUG Bootcamp.Day7.EmployeeService -This is debug
+2023-08-02 12:00:55 [main] ERROR Bootcamp.Day7.EmployeeService -This is error
+2023-08-02 12:04:09 [main] ERROR Bootcamp.Day7.EmployeeService -This is error
+2023-08-02 12:04:09 [main] WARN  Bootcamp.Day7.EmployeeService -This is warning
+2023-08-02 12:04:09 [main] INFO  Bootcamp.Day7.EmployeeService -This is info
