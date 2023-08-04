@@ -1,2 +1,0 @@
-1. Docker Images: • docker images: List all locally available images. • docker pull <image_name>:<tag>: Download an image from Docker Hub or a registry. • docker build -t <image_name>:<tag> <path_to_dockerfile>: Build a Docker image from a Dockerfile. 
-2. Docker Containers: • docker ps: List running containers. • docker ps -a: List all containers (including stopped ones). • docker run <image_name>:<tag>: Create and start a container from an image. • docker start <container_id>: Start a stopped co
