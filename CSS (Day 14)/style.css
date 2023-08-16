@@ -1,0 +1,16 @@
+body
+{
+    background-color: pink;
+}
+
+#div1
+{
+    background-color: aquamarine;
+    height: 100px;
+}
+
+#div2
+{
+    background-color: rgb(173, 173, 222);
+    height: 300px;
+}
