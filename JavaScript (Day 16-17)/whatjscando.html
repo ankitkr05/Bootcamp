@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="p1">This is paragraph 1</p>
+    <p id="p2" style="background-color: #d97070;">This is paragraph 2</p>
+
+    <img id="img1" src="telstra.jpg" height="100px" width="100px" alt="No image found"> <br>
+    <hr>
+    <button onclick="changeContent()">Click Me to change HTML content</button> <br> <br>
+    <button onclick="documentOutput()">Document Output</button> <br> <br>
+    <button onclick="alertOutput()">Window Output</button> <br> <br>
+    <button onclick="changeAttributeValue()">Change Attribute Value</button> <br> <br>
+    <button onclick="changeCssStyle()">Change CSS Style</button> <br>
+
+    <script>
+        function changeContent(){
+            document.getElementById('p1').innerHTML = "Hello World";
+        }
+
+        function documentOutput(){
+            document.write("This is document output");
+        }
+
+        function alertOutput(){
+            window.alert("Window Output");
+        }
+
+        function changeAttributeValue(){
+            document.getElementById('img1').src = "myimage.jpg";
+        }
+
+        function changeCssStyle(){
+            document.getElementById('p2').style.backgroundColor = 'green';
+        }
+    </script>
+
+</body>
+</html>

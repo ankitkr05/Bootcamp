@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var salary = 40000; // Number type
+        var employee = {id:1, name: "Sachin", salary: 65000};  // Object type
+        console.log(employee.id + " " + employee.name + " " + employee.salary);
+        console.log(employee);
+
+        // Object by new keyword
+        var employee2 = new Object();
+        employee2.id = 2;
+        employee2.name = "Virat";
+        employee2.salary = 80000;
+        console.log(employee2.id + " " + employee2.name + " " + employee2.salary);
+
+        // Object Constructor
+        function employee(id, name, salary){
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+        }
+
+        var emp = new employee(3, "Rohit", 95000);
+        console.log(emp.id + " " + emp.name + " " + emp.salary);
+    </script>
+
+</body>
+</html>

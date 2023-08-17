@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="alertwindow()">Alert Window</button>
+    <button ondblclick="confirmwindow()">Confirm Window</button>
+    <button onmouseover="promptwindow()">Prompt Window</button>
+    <button onclick="opennewwindow()">Open New Window</button>
+    <button onclick="closewindow()">Close Window</button>
+
+    <script>
+
+        function alertwindow(){
+            alert("This is alert");
+        }
+
+        function confirmwindow(){
+            let result = confirm("Do you really want to close");
+            if(result == true)
+                alert("You have clicked OK");
+            else
+                alert("You have clicked No");
+        }
+
+        function promptwindow(){
+            let age = prompt("Enter your age");
+            let name = prompt("Enter your name");
+            alert("Your name " + name + " and your age " + age);
+        }
+
+
+        function opennewwindow(){
+            window.open("https://google.com/", "_blank", "width-200, height-200");
+        }
+
+        function closewindow(){
+            setTimeout(function(){
+                window.close();
+            },4000)
+        }
+
+    </script>
+
+</body>
+</html>

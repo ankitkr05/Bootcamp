@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var fruit = "apple";  // Normal variable
+        var fruits = ["apple", "mango", "banana"];  // Array variable
+        console.log(fruit);
+        console.log("--------");
+        console.log(fruits);
+        fruits.push("grape");
+        console.log("After push : " + fruits);
+        fruits.push("kiwi");
+        console.log("After push : " + fruits);
+        fruits.pop();
+        console.log("After pop : " + fruits);
+
+        var vegetables = ["tomato", "cabbage", "potato"];
+
+        var eatables = fruits.concat(vegetables);
+        console.log(eatables);
+
+        console.log(fruits.sort());
+
+        console.log(fruits.reverse());
+    </script>
+
+</body>
+</html>

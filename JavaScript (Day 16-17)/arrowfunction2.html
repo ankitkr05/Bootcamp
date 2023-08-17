@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // arrow function with single line statement (no need of return statement)
+        let subtraction = (a,b) => a-b;
+        let greet = (message) =>console.log("Greet msg : " + message);
+
+        // multiple line statement
+        let largest = (a,b,c) =>
+        {
+            if(a>b && a>c)
+                return a;
+            else if(b>a && b>c)
+                return b;
+            else
+                return c;
+        };
+
+        let displayText = () => {
+            console.log("Welcome All");
+            console.log("Thanks All");
+        }
+
+        console.log(subtraction(4,1));
+        console.log("Largest : " + largest(4,2,6));
+
+        // no return statement
+        greet("Hello All");
+        displayText();
+
+        let mul = (a=2,b=5) => a*b;
+        console.log("Default values : " + mul());
+        console.log(mul(3));
+        console.log(mul(6,8));
+
+        let multiply = (a=1,b) => {
+            console.log(a);
+            console.log(b);
+        }
+        console.log(multiply(3));
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="tableName" id="tableName" placeholder="Enter table name"> <br> <br>
+    <input type="text" name="tableLimit" id="tableLimit" placeholder="Enter table limit"> <br> <br>
+
+    <button onclick="generateTable()">Generate Table</button>
+
+    <script>
+        function generateTable(){
+            var limit = Number(document.getElementById('tableLimit').value);
+            var tableName = Number(document.getElementById('tableName').value); 
+            for(let i=1; i<=limit; i++){
+                document.write(tableName + " * " + i  + " = " + (tableName * i) + "<br>");
+            }
+        }
+    </script>
+
+
+</body>
+</html>
