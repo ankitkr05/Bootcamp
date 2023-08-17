@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is h1</h1>
+    <p>This is paragraph 1</p>
+    <p>This is paragraph 2</p>
+    <p>This is paragraph 3</p>
+
+    <button>Click Me</button>
+
+    <script>
+        let button = document.getElementsByTagName("Button")[0];
+        console.log(button);
+
+        let value = button.childNodes[0].nodeValue;
+        console.log(value);
+    </script>
+
+</body>
+</html>

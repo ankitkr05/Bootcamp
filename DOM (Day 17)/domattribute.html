@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="anchor1">Click me to open google</a> <br> <br>
+    <a id="anchor2" href="https://www.flipkart.com/">Click me to open flipkart</a> <br> <br>
+
+    <button onclick="setUrl()">Click me to set attribute</button>
+    <button onclick="removeUrl()">Click me to remove attribute</button>
+    <button onclick="checkAttributeValue()">Click me to check attribute</button>
+    <button onclick="checkAttributeIsPresentOrNot()">Click me to check attribute is present or not</button>
+
+    <script>
+        function setUrl(){
+            // document.getElementById('anchor1').setAttribute("href", "https://www.google.com/")
+            let element = document.getElementById('anchor1');
+            element.setAttribute("href", "https://www.google.com/");
+            element.setAttribute("target", "_blank");
+            console.log(element);
+        }
+
+        function removeUrl(){
+            let element = document.getElementById('anchor1');
+            element.removeAttribute("href");
+            element.removeAttribute("target");
+            console.log("After Removing");
+            console.log(element);
+        }
+
+        function checkAttributeValue(){
+            let element = document.getElementById('anchor1');
+            let url = element.getAttribute("href");
+            alert(url);
+            let target = element.getAttribute("target");
+            alert(target);
+        }
+
+        function checkAttributeIsPresentOrNot(){
+            let element = document.getElementById('anchor1');
+            let result = element.hasAttribute("target");
+            console.log(result);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">12</p>
+    <p id="p2">34</p>
+
+    <script>
+        let element = document.getElementById('p2');
+        console.log(element);
+        let value = element.innerHTML;
+        console.log(value);
+        console.log(typeof(value));
+        let num = Number(value);
+        if(num > 18)
+            console.log("Eligible");
+        else
+            console.log("Not Eligible");
+    </script>
+</body>
+</html>
