@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        class Account{
+            constructor(id,name,balance){
+                this.id=id;
+                this.name=name;
+                this.balance=balance;
+            }
+
+            deposit(amount){
+                return this.balance += amount;
+            }
+
+            withdraw(amount){
+                return this.balance -= amount;
+            }
+
+            showDetails(){
+                console.log(`id: ${this.id}) name: ${this.name} balance: ${this.balance}`);
+            }
+        }
+
+        let account = new Account(1,"Sachin",5000);
+        account.showDetails();
+        console.log(`After deposit balance: ${account.deposit(4000)}`);
+        console.log(`After withdraw balance: ${account.withdraw(1000)}`);
+
+    </script>
+
+</body>
+</html>
